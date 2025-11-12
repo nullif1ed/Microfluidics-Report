@@ -3,8 +3,8 @@
 % ---------------------------------------------------------
 % PACKAGES
 % ---------------------------------------------------------
-\usepackage{graphicx, subcaption, float}
 \usepackage[margin=1in]{geometry}
+\usepackage{graphicx, subcaption, float}
 \usepackage{hyperref}
 \usepackage{enumitem}
 
@@ -29,23 +29,23 @@ This experiment introduces foundational principles of microfluidic flow, includi
 To convert pixel distances into physical length scales, an image with a known physical dimension (for example, channel width) is used for calibration.  
 A pixel-to-length ratio is obtained as:
 
-alpha = (known physical length) / (measured pixel length)
+\texttt{alpha = (known physical length) / (measured pixel length)}
 
-All measured lengths are then multiplied by alpha to convert to physical units.
+All measured lengths are then multiplied by \texttt{alpha} to convert to physical units.
 
 \subsection{Uncertainties in Length, Time, and Velocity}
 Length uncertainties stem primarily from image resolution, focusing quality, and operator measurement error.  
 Time uncertainty is dominated by the camera exposure-time specification and digitization precision.  
-Velocity, computed by v = d / t, inherits uncertainty from both measured streak length and exposure duration.
+Velocity, computed by \texttt{v = d / t}, inherits uncertainty from both measured streak length and exposure duration.
 
 \subsection{Uncertainty Propagation of Velocity}
-Given v = d / t,  
-the relative uncertainty is:
+Given \texttt{v = d / t}, the relative uncertainty is:
 
-(Δv / v)^2 = (Δd / d)^2 + (Δt / t)^2
+\texttt{(Δv / v)^2 = (Δd / d)^2 + (Δt / t)^2}
 
-Thus,  
-Δv = v * sqrt((Δd / d)^2 + (Δt / t)^2)
+Thus,
+
+\texttt{Δv = v * sqrt((Δd / d)^2 + (Δt / t)^2)}
 
 \subsection{Non-Quantifiable Errors and Assumptions}
 Non-quantifiable effects include:
@@ -74,7 +74,7 @@ Turbulence intensity can rise in regions with abrupt roughness change, referenci
 \subsection{Flow Regime}
 At microfluidic length scales, Reynolds number is typically much less than 2000, so laminar flow is expected. As seen in the captured images from the microfluidics lab, the smooth streaklines confirm laminar flow behavior in the straight tube section.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{str.png}
     \caption{Straight channel streak visualization}
@@ -86,8 +86,7 @@ This matches theoretical parabolic Poiseuille flow.
 Adverse pressure gradient effects are not expected to play major roles in a straight microchannel.
 
 \subsection{Velocity Profile}
-
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{Velocity Profile.png}
     \caption{Velocity measurements of streaks at certain distances from the lower boundary of the straight channel. Parabola fitted to better depict the velocity profile.}
@@ -106,32 +105,32 @@ Mean velocity may be increased by:
 Bernoulli’s equation shows velocity increase is proportional to pressure difference.
 
 \subsection{Velocity vs. Syringe Height}
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{height.png}
     \caption{Velocity measurements taken at the same point in the center of the straight channel, with four varying heights of the syringe.}
 \end{figure}
 
-\subsection{Hagen–Poiseuille: Symbolic Relationship}
-Hagen–Poiseuille law gives:
+\subsection{Hagen--Poiseuille: Symbolic Relationship}
+Hagen--Poiseuille law gives:
 
-Q proportional to (Δp) / (μL), and Q = S * U
+\texttt{Q proportional to (Δp) / (μL), and Q = S * U}
 
-Since Δp = ρ * g * z1,  
-we have U3 proportional to z1.
+Since \texttt{Δp = ρ * g * z1},  
+we have \texttt{U3 proportional to z1.}
 
 Thus, fluid velocity in the straight channel is expected to grow linearly with syringe height, which can be seen with the fitted trendline in the previous graph.
 
 \subsection{Bonus: Bernoulli Relation}
-Torricelli’s law gives U approximately equal to sqrt(2 * g * Δz).  
-Thus, U3 proportional to sqrt(z1).
+Torricelli’s law gives \texttt{U ≈ sqrt(2 * g * Δz).}  
+Thus, \texttt{U3 proportional to sqrt(z1).}
 
 Comparing:
 \begin{itemize}
-  \item Hagen–Poiseuille: U3 proportional to z1
-  \item Bernoulli: U3 proportional to sqrt(z1)
+  \item Hagen--Poiseuille: \texttt{U3 proportional to z1}
+  \item Bernoulli: \texttt{U3 proportional to sqrt(z1)}
 \end{itemize}
-Differences arise because Bernoulli neglects viscous losses; Hagen–Poiseuille accounts for dissipation.
+Differences arise because Bernoulli neglects viscous losses; Hagen--Poiseuille accounts for dissipation.
 
 % ---------------------------------------------------------
 \section{Channels of Different Size}
@@ -139,11 +138,11 @@ Differences arise because Bernoulli neglects viscous losses; Hagen–Poiseuille 
 \subsection{Expected Velocity Ratio}
 Flow rate continuity requires:
 
-U proportional to 1 / A
+\texttt{U proportional to 1 / A}
 
 For a fixed-height channel, area ratio approximates width ratio:
 
-U2 / U1 approximately equals W1 / W2
+\texttt{U2 / U1 ≈ W1 / W2}
 
 This assumes Newtonian behavior. Thus, with a starting width of 241.197 micrometers and an expansion width of 507.619 micrometers, the theoretical centerline flow velocity ratio is approximately 2.105.
 
@@ -153,7 +152,7 @@ Before the expansion, the measured velocity was 1005.823 micrometers per second;
 \subsection{Flow Features}
 Abrupt contractions create separated regions and recirculation; gradual transitions suppress separation and produce more ordered streaklines. In the abrupt transition, there are pockets of turbulent or circular flow at the edges of the expansion chamber. The differences can be clearly seen in the two following figures.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{minipage}{0.48\textwidth}
         \centering
@@ -184,7 +183,7 @@ Theory expects nearly unchanged centerline speed if cross-section remains consta
 Smooth bend results in smooth pathlines, while a sharp bend introduces recirculation, separation, and secondary vortices.  
 These can be seen in the following figures.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{minipage}{0.48\textwidth}
         \centering
