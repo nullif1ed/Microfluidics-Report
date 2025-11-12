@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  12 NOV 2025 11:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  12 NOV 2025 12:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -404,7 +404,14 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
 (C:\Users\nicho\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
-) (report.aux)
+) (report.aux
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+
+LaTeX Warning: Label `fig:2' multiply defined.
+
+)
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
@@ -569,12 +576,12 @@ Package pdftex.def Info: sharp diverge.png  used on input line 185.
 <smoothbend.png, id=207, 619.56468pt x 513.41812pt>
 File: smoothbend.png Graphic file (type png)
 <use smoothbend.png>
-Package pdftex.def Info: smoothbend.png  used on input line 215.
+Package pdftex.def Info: smoothbend.png  used on input line 214.
 (pdftex.def)             Requested size: 225.4804pt x 186.84373pt.
 <sharpbend.png, id=208, 615.0478pt x 429.10312pt>
 File: sharpbend.png Graphic file (type png)
 <use sharpbend.png>
-Package pdftex.def Info: sharpbend.png  used on input line 222.
+Package pdftex.def Info: sharpbend.png  used on input line 221.
 (pdftex.def)             Requested size: 225.4804pt x 157.3121pt.
  [8 <./smoothbend.png> <./sharpbend.png>] [9] (report.aux)
  ***********
@@ -583,7 +590,7 @@ L3 programming layer <2024-01-04>
  ***********
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: D4C509C45C8C63A40F654A6DC1D887DB;5420.
@@ -595,7 +602,7 @@ Here is how much of TeX's memory you used:
  38735 multiletter control sequences out of 15000+600000
  567169 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 79i,8n,93p,795b,1137s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 79i,8n,93p,526b,1137s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\nicho\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><C:/Users/nicho/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb><C:/Users/nicho/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -605,7 +612,7 @@ X/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/nicho/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/nicho/AppData/Loca
 l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/nicho/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on report.pdf (9 pages, 2082653 bytes).
+Output written on report.pdf (9 pages, 2082582 bytes).
 PDF statistics:
  268 PDF objects out of 1000 (max. 8388607)
  46 named destinations out of 1000 (max. 500000)
