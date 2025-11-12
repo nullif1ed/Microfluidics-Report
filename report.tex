@@ -3,11 +3,10 @@
 % ---------------------------------------------------------
 % PACKAGES
 % ---------------------------------------------------------
-\usepackage{amsmath, amssymb, siunitx, graphicx, subcaption, float, physics}
+\usepackage{graphicx, subcaption, float}
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
 \usepackage{enumitem}
-\usepackage{graphicx}
 
 \title{AER210 Microfluidics Laboratory Report}
 \author{Nicholas Nguyen \\ 1010900474}
@@ -27,42 +26,34 @@ This experiment introduces foundational principles of microfluidic flow, includi
 \section{Length Scale and Uncertainty}
 
 \subsection{Conversion of Image Distances to Physical Scale}
-To convert pixel distances into physical length scales, an image with a known physical dimension (e.g.\ channel width) is used for calibration. A pixel‐to‐length ratio
-\[
-\alpha = \frac{\text{known physical length}}{\text{measured pixel length}}
-\]
-is obtained, and all measured lengths are multiplied by $\alpha$ to convert to physical units.
+To convert pixel distances into physical length scales, an image with a known physical dimension (for example, channel width) is used for calibration.  
+A pixel-to-length ratio is obtained as:
+
+alpha = (known physical length) / (measured pixel length)
+
+All measured lengths are then multiplied by alpha to convert to physical units.
 
 \subsection{Uncertainties in Length, Time, and Velocity}
 Length uncertainties stem primarily from image resolution, focusing quality, and operator measurement error.  
-Time uncertainty is dominated by the camera exposure‐time specification and digitization precision.  
-Velocity, computed by $v = d/t$, inherits uncertainty from both measured streak length and exposure duration.
+Time uncertainty is dominated by the camera exposure-time specification and digitization precision.  
+Velocity, computed by v = d / t, inherits uncertainty from both measured streak length and exposure duration.
 
 \subsection{Uncertainty Propagation of Velocity}
-Given
-\[
-v = \frac{d}{t},
-\]
-the relative uncertainty is
-\[
-\left(\frac{\Delta v}{v}\right)^2
-= \left(\frac{\Delta d}{d}\right)^2
-+ \left(\frac{\Delta t}{t}\right)^2.
-\]
-Thus,
-\[
-\Delta v = v \sqrt{
-  \left(\frac{\Delta d}{d}\right)^2 +
-  \left(\frac{\Delta t}{t}\right)^2 }.
-\]
+Given v = d / t,  
+the relative uncertainty is:
 
-\subsection{Non‐Quantifiable Errors and Assumptions}
-Non‐quantifiable effects include:
+(Δv / v)^2 = (Δd / d)^2 + (Δt / t)^2
+
+Thus,  
+Δv = v * sqrt((Δd / d)^2 + (Δt / t)^2)
+
+\subsection{Non-Quantifiable Errors and Assumptions}
+Non-quantifiable effects include:
 \begin{itemize}
   \item Flow disturbances due to wall roughness
   \item Minor air bubbles altering local flow rates
-  \item Entrance effects and non‐ideal channel geometry
-  \item Non‐uniform bead distribution
+  \item Entrance effects and non-ideal channel geometry
+  \item Non-uniform bead distribution
 \end{itemize}
 These factors distort the ideal laminar velocity profile and complicate curve fitting.
 
@@ -70,10 +61,10 @@ These factors distort the ideal laminar velocity profile and complicate curve fi
 \section{Chip Design}
 
 \subsection{Imperfections and Their Flow Effects}
-Imperfections (wall roughness, machining irregularities, debris) may cause local pressure losses. The resulting perturbations distort bulk velocity distribution and can introduce low‐level turbulent intensity, increasing dissipation and mean pressure drop.
+Imperfections (wall roughness, machining irregularities, debris) may cause local pressure losses. The resulting perturbations distort bulk velocity distribution and can introduce low-level turbulent intensity, increasing dissipation and mean pressure drop.
 
 \subsection{Effects of Wall Imperfections}
-Wall roughness leads to boundary‐layer distortion.  
+Wall roughness leads to boundary-layer distortion.  
 Locally, velocity gradients increase near protrusions, increasing drag and pressure drop downstream.  
 Turbulence intensity can rise in regions with abrupt roughness change, referencing similar effects observed in the UTIAS wind tunnel.
 
@@ -81,7 +72,7 @@ Turbulence intensity can rise in regions with abrupt roughness change, referenci
 \section{Straight Channels}
 
 \subsection{Flow Regime}
-At microfluidic length scales, Reynolds number is typically $\text{Re} \ll 2000$, so laminar flow is expected. As seen in the captured images from the microfluidics lab, the smooth streaklines confirm laminar flow behavior in the straight tube section.
+At microfluidic length scales, Reynolds number is typically much less than 2000, so laminar flow is expected. As seen in the captured images from the microfluidics lab, the smooth streaklines confirm laminar flow behavior in the straight tube section.
 
 \begin{figure}[h]
     \centering
@@ -90,12 +81,11 @@ At microfluidic length scales, Reynolds number is typically $\text{Re} \ll 2000$
 \end{figure}
 
 \subsection{Velocity Maximum and Gradient}
-For pressure‐driven flow, maximum velocity occurs at channel centerline; the velocity gradient is largest near walls where no‐slip applies.  
+For pressure-driven flow, maximum velocity occurs at the channel centerline; the velocity gradient is largest near walls where no-slip applies.  
 This matches theoretical parabolic Poiseuille flow.  
-APG boundary‐layer effects are not expected to play major roles in a straight microchannel.
+Adverse pressure gradient effects are not expected to play major roles in a straight microchannel.
 
-\subsection{Velocity Profile)}
-
+\subsection{Velocity Profile}
 
 \begin{figure}[h]
     \centering
@@ -109,44 +99,37 @@ Theoretically, a parabolic velocity profile is expected for laminar channel flow
 \subsection{Manipulating Mean Velocity}
 Mean velocity may be increased by:
 \begin{itemize}
-  \item Raising the syringe height → increases hydrostatic pressure
-  \item Lowering channel resistance → larger cross‐section
+  \item Raising the syringe height (increases hydrostatic pressure)
+  \item Lowering channel resistance (larger cross-section)
   \item Increasing turbulence intensity (injecting disturbances)
 \end{itemize}
-Bernoulli's equation shows velocity increase is proportional to pressure difference.
+Bernoulli’s equation shows velocity increase is proportional to pressure difference.
 
-\subsection{Velocity vs.\ Syringe Height}
+\subsection{Velocity vs. Syringe Height}
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{height.png}
     \caption{Velocity measurements taken at the same point in the center of the straight channel, with four varying heights of the syringe.}
 \end{figure}
 
-
 \subsection{Hagen–Poiseuille: Symbolic Relationship}
-Hagen–Poiseuille gives
-\[
-Q \propto \frac{\Delta p}{\mu L}, \quad Q = S U.
-\]
-Since $\Delta p = \rho g z_1$,
-\[
-U_3 \propto z_1.
-\]
+Hagen–Poiseuille law gives:
+
+Q proportional to (Δp) / (μL), and Q = S * U
+
+Since Δp = ρ * g * z1,  
+we have U3 proportional to z1.
+
 Thus, fluid velocity in the straight channel is expected to grow linearly with syringe height, which can be seen with the fitted trendline in the previous graph.
 
 \subsection{Bonus: Bernoulli Relation}
-Torricelli’s law:
-\[
-U \sim \sqrt{2g \Delta z}.
-\]
-Thus,
-\[
-U_3 \propto \sqrt{z_1}.
-\]
+Torricelli’s law gives U approximately equal to sqrt(2 * g * Δz).  
+Thus, U3 proportional to sqrt(z1).
+
 Comparing:
 \begin{itemize}
-  \item Hagen–Poiseuille → $U_3 \propto z_1$
-  \item Bernoulli → $U_3 \propto \sqrt{z_1}$
+  \item Hagen–Poiseuille: U3 proportional to z1
+  \item Bernoulli: U3 proportional to sqrt(z1)
 \end{itemize}
 Differences arise because Bernoulli neglects viscous losses; Hagen–Poiseuille accounts for dissipation.
 
@@ -154,43 +137,39 @@ Differences arise because Bernoulli neglects viscous losses; Hagen–Poiseuille 
 \section{Channels of Different Size}
 
 \subsection{Expected Velocity Ratio}
-Flow rate continuity requires
-\[
-U \propto \frac{1}{A}.
-\]
-For a fixed height channel, area ratio approximates width ratio:
-\[
-\frac{U_2}{U_1} \approx \frac{W_1}{W_2}.
-\]
-This assumes Newtonian behavior. Thus, with a starting width of 241.197 micrometers and a expansion width of 507.619 micrometers, the theoretical centerline flow velocity ratio is approximately 2.105.
+Flow rate continuity requires:
+
+U proportional to 1 / A
+
+For a fixed-height channel, area ratio approximates width ratio:
+
+U2 / U1 approximately equals W1 / W2
+
+This assumes Newtonian behavior. Thus, with a starting width of 241.197 micrometers and an expansion width of 507.619 micrometers, the theoretical centerline flow velocity ratio is approximately 2.105.
 
 \subsection{Measured Ratio (Data Required)}
-Before the expansion, the measured velocity was 1005.823 micrometers/second, after the expansion, it is measured at 408.012 micrometers/second. This yields a velocity ratio of 2.465, which generally agrees with the theoretically calculated value.
+Before the expansion, the measured velocity was 1005.823 micrometers per second; after the expansion, it was measured at 408.012 micrometers per second. This yields a velocity ratio of 2.465, which generally agrees with the theoretically calculated value.
 
 \subsection{Flow Features}
-Abrupt contractions create separated regions and recirculation; gradual transitions suppress separation and produce more ordered streaklines. In the abrupt transition, there are pockets of turbulent/circular flow at the edges of the expansion chamber. The differences can be clearly seen in the two following figures.
+Abrupt contractions create separated regions and recirculation; gradual transitions suppress separation and produce more ordered streaklines. In the abrupt transition, there are pockets of turbulent or circular flow at the edges of the expansion chamber. The differences can be clearly seen in the two following figures.
 
 \begin{figure}[h]
     \centering
-
     \begin{minipage}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{smooth.png}
         \caption{Smooth expansion}
-        \label{fig:1}
     \end{minipage}
     \hfill
     \begin{minipage}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{sharp diverge.png}
         \caption{Abrupt expansion}
-        \label{fig:2}
     \end{minipage}
-
 \end{figure}
 
 \subsection{Turbulence}
-Given Re $\ll 2000$, turbulent flow is unlikely; streaklines should remain smooth. Localized disturbances do not constitute sustained turbulence.
+Given Reynolds number much less than 2000, turbulent flow is unlikely; streaklines should remain smooth. Localized disturbances do not constitute sustained turbulence.
 
 \subsection{Flow Transitions in Engineering}
 Smooth transitions reduce pressure loss and unsteadiness. Synthetic jets provide control authority to shape flow separation.
@@ -199,36 +178,31 @@ Smooth transitions reduce pressure loss and unsteadiness. Synthetic jets provide
 \section{Channels with Bends}
 
 \subsection{Velocity Change}
-Theory expects nearly unchanged centerline speed if cross‐section remains constant. Curvature may induce secondary Dean vortices, resulting in flow velocity discrepancy. For the sharp bend channel, velocity before the bend was measured at 714.988 micrometers/second with valocity after the bend of 528.127 micrometers/second. For the curved bend channel, centerline velocities were measured at 560.019 micrometers/second and 694.1 micrometers/second before and after the bend, respectively.
+Theory expects nearly unchanged centerline speed if cross-section remains constant. Curvature may induce secondary Dean vortices, resulting in flow velocity discrepancy. For the sharp bend channel, velocity before the bend was measured at 714.988 micrometers per second and after the bend at 528.127 micrometers per second. For the curved bend channel, centerline velocities were measured at 560.019 micrometers per second and 694.1 micrometers per second before and after the bend, respectively.
 
 \subsection{Flow Features}
-Smooth bend → smooth pathlines;  
-Sharp bend → recirculation, separation, secondary vortices.
+Smooth bend results in smooth pathlines, while a sharp bend introduces recirculation, separation, and secondary vortices.  
 These can be seen in the following figures.
 
 \begin{figure}[h]
     \centering
-
     \begin{minipage}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{smoothbend.png}
         \caption{Smooth bend}
-        \label{fig:1}
     \end{minipage}
     \hfill
     \begin{minipage}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{sharpbend.png}
         \caption{Sharp bend}
-        \label{fig:2}
     \end{minipage}
-
 \end{figure}
 
 \subsection{Turbulence}
-Likely still laminar due to low Re. Observed waviness arises from curvature, not turbulence.
+Flow likely remains laminar due to low Reynolds number. Observed waviness arises from curvature, not turbulence.
 
-\subsection{Concave vs.\ Convex Corners}
+\subsection{Concave vs. Convex Corners}
 Concave corners accelerate flow, yielding narrower stream tubes; convex corners slow flow and widen stream tubes.
 
 \end{document}
