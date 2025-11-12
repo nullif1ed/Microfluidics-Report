@@ -1,0 +1,183 @@
+\documentclass[12pt]{article}
+
+% ---------------------------------------------------------
+% PACKAGES
+% ---------------------------------------------------------
+\usepackage{amsmath, amssymb, siunitx, graphicx, subcaption, float, physics}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\title{AER210 Microfluidics Laboratory Report}
+\author{<Name> \\ <Student Number>}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+\newpage
+
+% ---------------------------------------------------------
+\section{Introduction}
+This experiment introduces foundational principles of microfluidic flow, including laminar transport, channel geometry effects, and velocity visualization using fluorescent beads. Due to the microscale dimensions involved, inertial forces are typically small relative to viscous forces, resulting in low Reynolds numbers and highly ordered flows suitable for quantitative study.
+
+% ---------------------------------------------------------
+\section{Length Scale and Uncertainty}
+
+\subsection{Conversion of Image Distances to Physical Scale}
+To convert pixel distances into physical length scales, an image with a known physical dimension (e.g.\ channel width) is used for calibration. A pixel‐to‐length ratio
+\[
+\alpha = \frac{\text{known physical length}}{\text{measured pixel length}}
+\]
+is obtained, and all measured lengths are multiplied by $\alpha$ to convert to physical units.
+
+\subsection{Uncertainties in Length, Time, and Velocity}
+Length uncertainties stem primarily from image resolution, focusing quality, and operator measurement error.  
+Time uncertainty is dominated by the camera exposure‐time specification and digitization precision.  
+Velocity, computed by $v = d/t$, inherits uncertainty from both measured streak length and exposure duration.
+
+\subsection{Uncertainty Propagation of Velocity}
+Given
+\[
+v = \frac{d}{t},
+\]
+the relative uncertainty is
+\[
+\left(\frac{\Delta v}{v}\right)^2
+= \left(\frac{\Delta d}{d}\right)^2
++ \left(\frac{\Delta t}{t}\right)^2.
+\]
+Thus,
+\[
+\Delta v = v \sqrt{
+  \left(\frac{\Delta d}{d}\right)^2 +
+  \left(\frac{\Delta t}{t}\right)^2 }.
+\]
+
+\subsection{Non‐Quantifiable Errors and Assumptions}
+Non‐quantifiable effects include:
+\begin{itemize}
+  \item Flow disturbances due to wall roughness
+  \item Minor air bubbles altering local flow rates
+  \item Entrance effects and non‐ideal channel geometry
+  \item Non‐uniform bead distribution
+\end{itemize}
+These factors distort the ideal laminar velocity profile and complicate curve fitting.
+
+% ---------------------------------------------------------
+\section{Chip Design}
+
+\subsection{Imperfections and Their Flow Effects}
+Imperfections (wall roughness, machining irregularities, debris) may cause local pressure losses. The resulting perturbations distort bulk velocity distribution and can introduce low‐level turbulent intensity, increasing dissipation and mean pressure drop.
+
+\subsection{Effects of Wall Imperfections}
+Wall roughness leads to boundary‐layer distortion.  
+Locally, velocity gradients increase near protrusions, increasing drag and pressure drop downstream.  
+Turbulence intensity can rise in regions with abrupt roughness change, referencing similar effects observed in the UTIAS wind tunnel.
+
+% ---------------------------------------------------------
+\section{Straight Channels}
+
+\subsection{Flow Regime}
+At microfluidic length scales, Reynolds number is typically $\text{Re} \ll 2000$, so laminar flow is expected. Straight, smooth streaklines and absence of mixing confirm laminar behavior.
+
+\subsection{Velocity Maximum and Gradient}
+For pressure‐driven flow, maximum velocity occurs at channel centerline; the velocity gradient is largest near walls where no‐slip applies.  
+This matches theoretical parabolic Poiseuille flow.  
+APG boundary‐layer effects are not expected to play major roles in a straight microchannel.
+
+\subsection{Velocity Profile (Data Required)}
+\textbf{To be completed when data is available.}
+
+\subsection{Expected Curve Type}
+Theoretically, a parabolic velocity profile is expected for laminar channel flow.
+
+\subsection{Manipulating Mean Velocity}
+Mean velocity may be increased by:
+\begin{itemize}
+  \item Raising the syringe height → increases hydrostatic pressure
+  \item Lowering channel resistance → larger cross‐section
+  \item Increasing turbulence intensity (injecting disturbances)
+\end{itemize}
+Bernoulli's equation shows velocity increase is proportional to pressure difference.
+
+\subsection{Velocity vs.\ Syringe Height (Data Required)}
+\textbf{To be completed when data is available.}
+
+\subsection{Hagen–Poiseuille: Symbolic Relationship}
+Hagen–Poiseuille gives
+\[
+Q \propto \frac{\Delta p}{\mu L}, \quad Q = S U.
+\]
+Since $\Delta p = \rho g z_1$,
+\[
+U_3 \propto z_1.
+\]
+Thus, fluid velocity in the straight channel is expected to grow linearly with syringe height.
+
+\subsection{Bonus: Bernoulli Relation}
+Torricelli’s law:
+\[
+U \sim \sqrt{2g \Delta z}.
+\]
+Thus,
+\[
+U_3 \propto \sqrt{z_1}.
+\]
+Comparing:
+\begin{itemize}
+  \item Hagen–Poiseuille → $U_3 \propto z_1$
+  \item Bernoulli → $U_3 \propto \sqrt{z_1}$
+\end{itemize}
+Differences arise because Bernoulli neglects viscous losses; Hagen–Poiseuille accounts for dissipation.
+
+% ---------------------------------------------------------
+\section{Channels of Different Size}
+
+\subsection{Expected Velocity Ratio}
+Flow rate continuity requires
+\[
+U \propto \frac{1}{A}.
+\]
+For a fixed height channel, area ratio approximates width ratio:
+\[
+\frac{U_2}{U_1} \approx \frac{W_1}{W_2}.
+\]
+This assumes Newtonian behavior.
+
+\subsection{Measured Ratio (Data Required)}
+\textbf{To be completed when data is available.}
+
+\subsection{Flow Features}
+Abrupt contractions create separated regions and recirculation; gradual transitions suppress separation and produce more ordered streaklines.
+
+\subsection{Turbulence}
+Given Re $\ll 2000$, turbulent flow is unlikely; streaklines should remain smooth. Localized disturbances do not constitute sustained turbulence.
+
+\subsection{Flow Transitions in Engineering}
+Smooth transitions reduce pressure loss and unsteadiness. Synthetic jets provide control authority to shape flow separation.
+
+% ---------------------------------------------------------
+\section{Channels with Bends}
+
+\subsection{Velocity Change}
+Theory expects nearly unchanged centerline speed if cross‐section remains constant; curvature may induce secondary Dean vortices.  
+\textbf{Data Required for comparison.}
+
+\subsection{Flow Features}
+Smooth bend → smooth pathlines;  
+Sharp bend → recirculation, separation, secondary vortices.
+
+\subsection{Turbulence}
+Likely still laminar due to low Re. Observed waviness arises from curvature, not turbulence.
+
+\subsection{Concave vs.\ Convex Corners}
+Concave corners accelerate flow, yielding narrower stream tubes; convex corners slow flow and widen stream tubes.
+
+% ---------------------------------------------------------
+\section{Conclusion}
+Microfluidic flows are dominated by viscosity. Straight channels exhibit Poiseuille profiles with maximum velocity at the centerline. Channel shape strongly influences pressure loss and bead trajectory. When data are included, measured results should validate theory in the laminar regime.
+
+% ---------------------------------------------------------
+\end{document}
